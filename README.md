@@ -138,7 +138,7 @@ mall
 
 ![](http://img.macrozheng.com/mall/project/mall_swarm_run_new_01.png)
 
-- 监控中心应用信息，访问地址：http://192.168.3.101:8101
+- 监控中心应用信息，访问地址：http://192.168.3.101:8101 密码：123456
 
 ![](http://img.macrozheng.com/mall/project/mall_swarm_run_new_02.png)
 
