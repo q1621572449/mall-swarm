@@ -20,6 +20,7 @@ public class CmsPrefrenceAreaServiceImpl implements CmsPrefrenceAreaService {
 
     @Override
     public List<CmsPrefrenceArea> listAll() {
+        //new CmsPrefrenceAreaExample()相当于一个sql条件类，如果需要条件查询，可以向空对象里面赋值
         return prefrenceAreaMapper.selectByExample(new CmsPrefrenceAreaExample());
     }
 }

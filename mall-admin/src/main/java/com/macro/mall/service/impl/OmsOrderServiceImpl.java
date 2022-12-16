@@ -62,6 +62,7 @@ public class OmsOrderServiceImpl implements OmsOrderService {
         OmsOrder record = new OmsOrder();
         record.setStatus(4);
         OmsOrderExample example = new OmsOrderExample();
+        //用这个来封装条件吗
         example.createCriteria().andDeleteStatusEqualTo(0).andIdIn(ids);
         int count = orderMapper.updateByExampleSelective(record, example);
         List<OmsOrderOperateHistory> historyList = ids.stream().map(orderId -> {

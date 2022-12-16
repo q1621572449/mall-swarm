@@ -27,10 +27,12 @@ public class CmsSubjectServiceImpl implements CmsSubjectService {
 
     @Override
     public List<CmsSubject> list(String keyword, Integer pageNum, Integer pageSize) {
+        //封装页数和大小
         PageHelper.startPage(pageNum, pageSize);
         CmsSubjectExample example = new CmsSubjectExample();
         CmsSubjectExample.Criteria criteria = example.createCriteria();
         if (!StringUtils.isEmpty(keyword)) {
+            //封装条件搜索
             criteria.andTitleLike("%" + keyword + "%");
         }
         return subjectMapper.selectByExample(example);

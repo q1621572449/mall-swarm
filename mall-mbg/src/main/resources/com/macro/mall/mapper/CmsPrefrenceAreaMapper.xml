@@ -93,6 +93,7 @@
   </select>
   <select id="selectByExample" parameterType="com.macro.mall.model.CmsPrefrenceAreaExample" resultMap="BaseResultMap">
     select
+        /*直接取传入对象的属性*/
     <if test="distinct">
       distinct
     </if>
