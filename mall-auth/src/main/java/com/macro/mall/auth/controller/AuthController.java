@@ -41,6 +41,8 @@ public class AuthController {
         parameters.put("grant_type",grant_type);
         parameters.put("client_id",client_id);
         parameters.put("client_secret",client_secret);
+        //这是一个简化版的putIfAbsent方法的实现，它的作用是往Map对象中添加一个键值对（key-value），
+        // 如果该键已经存在，则不进行任何操作，返回已存在的值；如果该键不存在，则添加该键值对，并返回新添加的值。
         parameters.putIfAbsent("refresh_token",refresh_token);
         parameters.putIfAbsent("username",username);
         parameters.putIfAbsent("password",password);
