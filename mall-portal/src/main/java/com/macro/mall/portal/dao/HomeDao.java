@@ -10,6 +10,8 @@ import java.util.List;
 
 /**
  * 首页内容管理自定义Dao
+ * 在JavaWeb中，DAO（Data Access Object）是一种数据访问设计模式，
+ * 用于在业务逻辑层和数据源（如数据库、文件、缓存等）之间进行数据交互，将数据持久化到数据源中或从数据源中获取数据。
  * Created by macro on 2019/1/28.
  */
 public interface HomeDao {

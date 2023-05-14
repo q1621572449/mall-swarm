@@ -58,6 +58,14 @@ public class HomeServiceImpl implements HomeService {
     @Override
     public List<PmsProduct> recommendProductList(Integer pageSize, Integer pageNum) {
         // TODO: 2019/1/29 暂时默认推荐所有商品
+        //PageHelper 是 MyBatis 的一个分页插件，它可以在需要分页的查询语句前加上分页参数，自动地在查询的过程中完成分页的功能。
+        //
+        //在上述代码中，PageHelper.startPage(pageNum,pageSize) 方法就是启动分页功能的方式，它设置了当前需要查询的页码和每页的记录数。
+        // startPage 方法会对 MyBatis 的拦截器进行重置，从而实现对 SQL 语句的改写，自动添加分页查询的语句。
+        //
+        //当 selectByExample 执行时，PageHelper 会拦截 SQL 语句，根据设置的分页参数自动重写 SQL，
+        // 将查询的结果限定在指定的页码和每页记录数的范围内，最后返回分页结果。因此在调用 productMapper.selectByExample(example) 时，
+        // 已经将分页参数起到了作用。
         PageHelper.startPage(pageNum,pageSize);
         PmsProductExample example = new PmsProductExample();
         example.createCriteria()
