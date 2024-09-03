@@ -30,16 +30,16 @@ services:
     ports:
       - 80:80
   rabbitmq:
-    image: rabbitmq:3.9-management
+    image: rabbitmq:3.10-management
     container_name: rabbitmq
     volumes:
-      - /mydata/rabbitmq/data:/var/lib/rabbitmq #数据文件挂载
+      - /mydata/rabbitmq/data:/var/lib/rabbitmq/mnesia #数据文件挂载
       - /mydata/rabbitmq/log:/var/log/rabbitmq #日志文件挂载
     ports:
       - 5672:5672
       - 15672:15672
   elasticsearch:
-    image: elasticsearch:7.17.3
+    image: elasticsearch:7.17.0
     container_name: elasticsearch
     user: root
     environment:
@@ -53,12 +53,10 @@ services:
       - 9200:9200
       - 9300:9300
   logstash:
-    image: logstash:7.17.3
+    image: logstash:7.17.0
     container_name: logstash
     environment:
       - TZ=Asia/Shanghai
-    volumes:
-      - /mydata/logstash/logstash.conf:/usr/share/logstash/pipeline/logstash.conf #挂载logstash的配置文件
     depends_on:
       - elasticsearch #kibana在elasticsearch启动之后再启动
     links:
@@ -69,7 +67,7 @@ services:
       - 4562:4562
       - 4563:4563
   kibana:
-    image: kibana:7.17.3
+    image: kibana:7.17.0
     container_name: kibana
     links:
       - elasticsearch:es #可以用es这个域名访问elasticsearch服务
@@ -93,3 +91,4 @@ services:
       - "MODE=standalone"
     ports:
       - 8848:8848
+      - 9848:9848
